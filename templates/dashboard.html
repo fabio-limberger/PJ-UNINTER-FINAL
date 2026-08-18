@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block title %}
+Dashboard
+{% endblock %}
+
+{% block content %}
+
+<h2>Painel Social</h2>
+
+<div class="cards">
+
+    <div class="card">
+        <h3>Beneficiários</h3>
+        <strong>{{ beneficiarios }}</strong>
+    </div>
+
+    <div class="card">
+        <h3>Necessidades</h3>
+        <strong>{{ necessidades }}</strong>
+    </div>
+
+    <div class="card">
+        <h3>Doações</h3>
+        <strong>{{ doacoes }}</strong>
+    </div>
+
+    <div class="card">
+        <h3>Ações</h3>
+        <strong>{{ acoes }}</strong>
+    </div>
+
+</div>
+
+
+<h2>Situação das necessidades</h2>
+
+<div class="cards">
+
+    <div class="card pendente">
+        <h3>Pendentes</h3>
+        <strong>{{ pendentes }}</strong>
+    </div>
+
+    <div class="card parcial">
+        <h3>Parciais</h3>
+        <strong>{{ parciais }}</strong>
+    </div>
+
+    <div class="card atendida">
+        <h3>Atendidas</h3>
+        <strong>{{ atendidas }}</strong>
+    </div>
+
+</div>
+
+{% endblock %}

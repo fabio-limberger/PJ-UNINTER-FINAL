@@ -1,0 +1,160 @@
+{% extends "base.html" %}
+
+{% block title %}
+Nova Doação
+{% endblock %}
+
+{% block content %}
+
+<h2>Registrar Doação</h2>
+
+<form method="POST">
+
+    <label>Doador</label>
+
+    <input type="text"
+           name="doador"
+           placeholder="Nome do doador ou empresa"
+           required>
+
+
+    <label>Observação</label>
+
+    <textarea name="observacao"
+              rows="3"></textarea>
+
+
+    <h3>Itens recebidos</h3>
+
+    <div id="itens">
+
+        <div class="item-doacao">
+
+            <label>Item</label>
+
+            <input type="text"
+                   name="item[]"
+                   placeholder="Ex.: Arroz"
+                   required>
+
+
+            <label>Categoria</label>
+
+            <select name="categoria[]">
+
+                <option value="Alimentação">
+                    Alimentação
+                </option>
+
+                <option value="Vestuário">
+                    Vestuário
+                </option>
+
+                <option value="Higiene">
+                    Higiene
+                </option>
+
+                <option value="Material escolar">
+                    Material escolar
+                </option>
+
+                <option value="Outros">
+                    Outros
+                </option>
+
+            </select>
+
+
+            <label>Quantidade</label>
+
+            <input type="number"
+                   name="quantidade[]"
+                   min="0.01"
+                   step="0.01"
+                   required>
+
+        </div>
+
+    </div>
+
+
+    <button type="button"
+            class="botao-secundario"
+            onclick="adicionarItem()">
+
+        + Adicionar outro item
+
+    </button>
+
+
+    <button type="submit">
+        Registrar doação
+    </button>
+
+</form>
+
+
+<script>
+
+function adicionarItem() {
+
+    const container =
+        document.getElementById("itens");
+
+    const novoItem =
+        document.createElement("div");
+
+    novoItem.className =
+        "item-doacao";
+
+    novoItem.innerHTML = `
+
+        <hr>
+
+        <label>Item</label>
+
+        <input type="text"
+               name="item[]"
+               required>
+
+        <label>Categoria</label>
+
+        <select name="categoria[]">
+
+            <option value="Alimentação">
+                Alimentação
+            </option>
+
+            <option value="Vestuário">
+                Vestuário
+            </option>
+
+            <option value="Higiene">
+                Higiene
+            </option>
+
+            <option value="Material escolar">
+                Material escolar
+            </option>
+
+            <option value="Outros">
+                Outros
+            </option>
+
+        </select>
+
+        <label>Quantidade</label>
+
+        <input type="number"
+               name="quantidade[]"
+               min="0.01"
+               step="0.01"
+               required>
+    `;
+
+    container.appendChild(novoItem);
+}
+
+</script>
+
+{% endblock %}

@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+
+{% block title %}
+Ações Solidárias
+{% endblock %}
+
+{% block content %}
+
+<div class="titulo-pagina">
+
+    <h2>Ações Solidárias</h2>
+
+    <a class="botao"
+       href="{{ url_for('nova_acao') }}">
+        + Nova ação
+    </a>
+
+</div>
+
+<table>
+
+    <thead>
+
+        <tr>
+            <th>Nome</th>
+            <th>Data</th>
+            <th>Descrição</th>
+            <th>Situação</th>
+        </tr>
+
+    </thead>
+
+    <tbody>
+
+        {% for acao in acoes %}
+
+        <tr>
+
+            <td>
+                {{ acao.nome }}
+            </td>
+
+            <td>
+                {{ acao.data }}
+            </td>
+
+            <td>
+                {{ acao.descricao }}
+            </td>
+
+            <td>
+                {{ acao.situacao }}
+            </td>
+
+        </tr>
+
+        {% else %}
+
+        <tr>
+
+            <td colspan="4">
+                Nenhuma ação cadastrada.
+            </td>
+
+        </tr>
+
+        {% endfor %}
+
+    </tbody>
+
+</table>
+
+{% endblock %}

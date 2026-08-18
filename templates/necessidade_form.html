@@ -1,0 +1,107 @@
+{% extends "base.html" %}
+
+{% block title %}
+Nova Necessidade
+{% endblock %}
+
+{% block content %}
+
+<h2>Cadastrar Necessidade</h2>
+
+<form method="POST">
+
+    <label>Beneficiário</label>
+
+    <select name="beneficiario_id" required>
+
+        <option value="">
+            Selecione
+        </option>
+
+        {% for beneficiario in beneficiarios %}
+
+        <option value="{{ beneficiario.id }}">
+
+            {{ beneficiario.codigo }}
+
+            -
+            
+            {{ beneficiario.tipo }}
+
+        </option>
+
+        {% endfor %}
+
+    </select>
+
+
+    <label>Categoria</label>
+
+    <select name="categoria" required>
+
+        <option value="Alimentação">
+            Alimentação
+        </option>
+
+        <option value="Vestuário">
+            Vestuário
+        </option>
+
+        <option value="Higiene">
+            Higiene
+        </option>
+
+        <option value="Material escolar">
+            Material escolar
+        </option>
+
+        <option value="Outros">
+            Outros
+        </option>
+
+    </select>
+
+
+    <label>Item</label>
+
+    <input type="text"
+           name="item"
+           placeholder="Ex.: Arroz"
+           required>
+
+
+    <label>Quantidade</label>
+
+    <input type="number"
+           name="quantidade"
+           min="0.01"
+           step="0.01"
+           required>
+
+
+    <label>Prioridade</label>
+
+    <select name="prioridade" required>
+
+        <option value="Alta">
+            Alta
+        </option>
+
+        <option value="Média">
+            Média
+        </option>
+
+        <option value="Baixa">
+            Baixa
+        </option>
+
+    </select>
+
+
+    <button type="submit">
+        Cadastrar necessidade
+    </button>
+
+</form>
+
+{% endblock %}

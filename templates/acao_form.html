@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block title %}
+Nova Ação
+{% endblock %}
+
+{% block content %}
+
+<h2>Cadastrar Ação Solidária</h2>
+
+<form method="POST">
+
+    <label>Nome da ação</label>
+
+    <input type="text"
+           name="nome"
+           placeholder="Ex.: Campanha do Agasalho"
+           required>
+
+
+    <label>Data</label>
+
+    <input type="date"
+           name="data"
+           required>
+
+
+    <label>Descrição</label>
+
+    <textarea name="descricao"
+              rows="5"
+              placeholder="Descreva a ação"></textarea>
+
+
+    <button type="submit">
+        Cadastrar ação
+    </button>
+
+</form>
+
+{% endblock %}

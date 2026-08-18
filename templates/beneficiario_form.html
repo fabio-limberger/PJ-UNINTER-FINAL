@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block title %}
+Novo Beneficiário
+{% endblock %}
+
+{% block content %}
+
+<h2>Novo Beneficiário</h2>
+
+<form method="POST">
+
+    <label>Código</label>
+
+    <input type="text"
+           name="codigo"
+           placeholder="Ex.: B-0001"
+           required>
+
+
+    <label>Tipo</label>
+
+    <select name="tipo" required>
+
+        <option value="">
+            Selecione
+        </option>
+
+        <option value="Família">
+            Família
+        </option>
+
+        <option value="Pessoa">
+            Pessoa
+        </option>
+
+        <option value="Instituição">
+            Instituição
+        </option>
+
+    </select>
+
+
+    <label>Bairro</label>
+
+    <input type="text"
+           name="bairro">
+
+
+    <button type="submit">
+        Cadastrar
+    </button>
+
+</form>
+
+{% endblock %}

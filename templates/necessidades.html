@@ -1,0 +1,113 @@
+{% extends "base.html" %}
+
+{% block title %}
+Necessidades
+{% endblock %}
+
+{% block content %}
+
+<div class="titulo-pagina">
+
+    <h2>Necessidades da Comunidade</h2>
+
+    <a class="botao"
+       href="{{ url_for('nova_necessidade') }}">
+        + Nova necessidade
+    </a>
+
+</div>
+
+<table>
+
+    <thead>
+
+        <tr>
+            <th>Beneficiário</th>
+            <th>Categoria</th>
+            <th>Item</th>
+            <th>Quantidade</th>
+            <th>Atendida</th>
+            <th>Restante</th>
+            <th>Prioridade</th>
+            <th>Situação</th>
+        </tr>
+
+    </thead>
+
+    <tbody>
+
+        {% for necessidade in necessidades %}
+
+        <tr>
+
+            <td>
+                {{ necessidade.codigo }}
+            </td>
+
+            <td>
+                {{ necessidade.categoria }}
+            </td>
+
+            <td>
+                {{ necessidade.item }}
+            </td>
+
+            <td>
+                {{ necessidade.quantidade }}
+            </td>
+
+            <td>
+                {{ necessidade.atendida }}
+            </td>
+
+            <td>
+                {{ necessidade.restante }}
+            </td>
+
+            <td>
+                {{ necessidade.prioridade }}
+            </td>
+
+            <td>
+
+                {% if necessidade.situacao == "Atendida" %}
+
+                    <span class="status atendida">
+                        Atendida
+                    </span>
+
+                {% elif necessidade.situacao == "Parcialmente atendida" %}
+
+                    <span class="status parcial">
+                        Parcial
+                    </span>
+
+                {% else %}
+
+                    <span class="status pendente">
+                        Pendente
+                    </span>
+
+                {% endif %}
+
+            </td>
+
+        </tr>
+
+        {% else %}
+
+        <tr>
+
+            <td colspan="8">
+                Nenhuma necessidade cadastrada.
+            </td>
+
+        </tr>
+
+        {% endfor %}
+
+    </tbody>
+
+</table>
+
+{% endblock %}

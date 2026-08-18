@@ -1,0 +1,99 @@
+{% extends "base.html" %}
+
+{% block title %}
+Registrar Atendimento
+{% endblock %}
+
+{% block content %}
+
+<h2>Registrar Atendimento</h2>
+
+<p>
+    Utilize esta tela para registrar quando uma necessidade
+    da comunidade for atendida por uma ação solidária.
+</p>
+
+<form method="POST">
+
+    <label>Necessidade</label>
+
+    <select name="necessidade_id"
+            required>
+
+        <option value="">
+            Selecione uma necessidade
+        </option>
+
+        {% for necessidade in necessidades %}
+
+        <option value="{{ necessidade.id }}">
+
+            {{ necessidade.codigo }}
+
+            -
+
+            {{ necessidade.item }}
+
+            -
+
+            {{ necessidade.quantidade }}
+
+            {{ " | " }}
+
+            {{ necessidade.situacao }}
+
+        </option>
+
+        {% endfor %}
+
+    </select>
+
+
+    <label>Ação solidária</label>
+
+    <select name="acao_id"
+            required>
+
+        <option value="">
+            Selecione uma ação
+        </option>
+
+        {% for acao in acoes %}
+
+        <option value="{{ acao.id }}">
+
+            {{ acao.nome }}
+
+            -
+
+            {{ acao.data }}
+
+        </option>
+
+        {% endfor %}
+
+    </select>
+
+
+    <label>Quantidade atendida</label>
+
+    <input type="number"
+           name="quantidade"
+           min="0.01"
+           step="0.01"
+           required>
+
+
+    <label>Observação</label>
+
+    <textarea name="observacao"
+              rows="4"></textarea>
+
+
+    <button type="submit">
+        Registrar atendimento
+    </button>
+
+</form>
+
+{% endblock %}

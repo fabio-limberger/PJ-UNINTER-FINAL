@@ -1,0 +1,334 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f4f6f8;
+    color: #333;
+}
+
+
+/* CABEÇALHO */
+
+header {
+    background: #12553e;
+    color: white;
+    padding: 20px 0;
+}
+
+.topo {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.topo h1 {
+    margin: 0 0 15px 0;
+}
+
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+}
+
+nav a:hover {
+    background: #12553e;
+}
+
+/* LOGO */
+
+.logo {
+    width: 90px;
+    height: 90px;
+    margin: auto;
+
+    object-fit: contain;
+    display: block;
+    flex-shrink: 0;
+    
+    order: 2;
+}
+
+.cabecalho-conteudo {
+    flex: 1;
+    order: 1;
+}
+
+.topo h1 {
+    margin: 0 0 15px 0;
+}
+
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+}
+
+nav a:hover {
+    background: #12553e;
+}
+
+/* CONTEÚDO */
+
+main {
+    width: 90%;
+    max-width: 1200px;
+    margin: 30px auto;
+}
+
+
+/* CARDS */
+
+.cards {
+    display: grid;
+    grid-template-columns:
+        repeat(auto-fit, minmax(180px, 1fr));
+
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.card {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+
+    box-shadow:
+        0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.card h3 {
+    margin-top: 0;
+    color: #555;
+}
+
+.card strong {
+    font-size: 35px;
+    color: #176b4d;
+}
+
+
+/* TÍTULO */
+
+.titulo-pagina {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 20px;
+}
+
+
+/* BOTÕES */
+
+.botao,
+button {
+    background: #176b4d;
+    color: white;
+
+    border: none;
+    border-radius: 5px;
+
+    padding: 11px 16px;
+
+    cursor: pointer;
+
+    text-decoration: none;
+}
+
+.botao:hover,
+button:hover {
+    background: #12553e;
+}
+
+.botao-secundario {
+    background: #555;
+    margin-bottom: 20px;
+}
+
+
+/* FORMULÁRIOS */
+
+form {
+    background: white;
+
+    padding: 25px;
+
+    border-radius: 10px;
+
+    box-shadow:
+        0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+label {
+    display: block;
+
+    margin-top: 15px;
+    margin-bottom: 5px;
+
+    font-weight: bold;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+
+    padding: 11px;
+
+    border: 1px solid #ccc;
+
+    border-radius: 5px;
+
+    font-size: 15px;
+}
+
+form button {
+    margin-top: 20px;
+}
+
+
+/* TABELAS */
+
+table {
+    width: 100%;
+
+    background: white;
+
+    border-collapse: collapse;
+
+    box-shadow:
+        0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+th {
+    background: #176b4d;
+    color: white;
+}
+
+th,
+td {
+    padding: 12px;
+
+    border-bottom: 1px solid #ddd;
+
+    text-align: left;
+}
+
+tr:hover {
+    background: #f7f7f7;
+}
+
+
+/* STATUS */
+
+.status {
+    padding: 5px 10px;
+
+    border-radius: 20px;
+
+    font-size: 13px;
+}
+
+.status.atendida {
+    background: #d1e7dd;
+    color: #0f5132;
+}
+
+.status.parcial {
+    background: #fff3cd;
+    color: #664d03;
+}
+
+.status.pendente {
+    background: #f8d7da;
+    color: #842029;
+}
+
+
+/* ALERTAS */
+
+.alert {
+    padding: 15px;
+
+    margin-bottom: 20px;
+
+    border-radius: 5px;
+}
+
+.alert.success {
+    background: #d1e7dd;
+    color: #0f5132;
+}
+
+.alert.danger {
+    background: #f8d7da;
+    color: #842029;
+}
+
+
+/* RODAPÉ */
+
+footer {
+    margin-top: 50px;
+
+    padding: 20px;
+
+    text-align: center;
+
+    background: #ddd;
+
+    color: #555;
+}
+
+
+/* RESPONSIVIDADE */
+
+@media (max-width: 700px) {
+
+        .topo {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .logo {
+        width: 70px;
+        height: 70px;
+    }
+
+    .titulo-pagina {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    table {
+        font-size: 13px;
+    }
+
+    th,
+    td {
+        padding: 8px;
+    }
+
+    nav {
+        flex-direction: column;
+    }
+}

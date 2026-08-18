@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+
+{% block title %}
+Beneficiários
+{% endblock %}
+
+{% block content %}
+
+<div class="titulo-pagina">
+
+    <h2>Beneficiários</h2>
+
+    <a class="botao"
+       href="{{ url_for('novo_beneficiario') }}">
+        + Novo beneficiário
+    </a>
+
+</div>
+
+<table>
+
+    <thead>
+
+        <tr>
+            <th>Código</th>
+            <th>Tipo</th>
+            <th>Bairro</th>
+            <th>Cadastro</th>
+            <th>Situação</th>
+        </tr>
+
+    </thead>
+
+    <tbody>
+
+        {% for beneficiario in beneficiarios %}
+
+        <tr>
+
+            <td>
+                {{ beneficiario["codigo"] }}
+            </td>
+
+            <td>
+                {{ beneficiario["tipo"] }}
+            </td>
+
+            <td>
+                {{ beneficiario["bairro"] }}
+            </td>
+
+            <td>
+                {{ beneficiario["data_cadastro"] }}
+            </td>
+
+            <td>
+                {{ beneficiario["situacao"] }}
+            </td>
+
+        </tr>
+
+        {% else %}
+
+        <tr>
+            <td colspan="5">
+                Nenhum beneficiário cadastrado.
+            </td>
+        </tr>
+
+        {% endfor %}
+
+    </tbody>
+
+</table>
+
+{% endblock %}

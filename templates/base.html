@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>
+        {% block title %}
+        Ações Solidárias
+        {% endblock %}
+    </title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<header>
+
+    <div class="topo">
+        <img src="{{ url_for('static', filename='logo.png') }}"
+            alt="Logo"
+            class="logo"
+        >
+
+        <div class="cabecalho-conteudo">
+
+      <h1>‡ Ações Solidárias</h1>
+    
+        <nav>
+
+            <a href="{{ url_for('dashboard') }}">
+                Dashboard
+            </a>
+
+            <a href="{{ url_for('beneficiarios') }}">
+                Beneficiários
+            </a>
+
+            <a href="{{ url_for('necessidades') }}">
+                Necessidades
+            </a>
+
+            <a href="{{ url_for('doacoes') }}">
+                Doações
+            </a>
+
+            <a href="{{ url_for('acoes') }}">
+                Ações
+            </a>
+
+            <a href="{{ url_for('novo_atendimento') }}">
+                Registrar atendimento
+            </a>
+
+        </nav>
+
+    </div>
+
+</header>
+
+<main>
+
+    {% with mensagens = get_flashed_messages(
+        with_categories=true
+    ) %}
+
+        {% for categoria, mensagem in mensagens %}
+
+            <div class="alert {{ categoria }}">
+                {{ mensagem }}
+            </div>
+
+        {% endfor %}
+
+    {% endwith %}
+
+    {% block content %}
+    {% endblock %}
+
+</main>
+
+<footer>
+
+    Sistema de Gestão de Ações Solidárias
+
+</footer>
+
+</body>
+
+</html>
